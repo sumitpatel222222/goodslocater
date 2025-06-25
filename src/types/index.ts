@@ -8,7 +8,7 @@ export interface User {
   userType?: 'customer' | 'shopkeeper'; // for registered users
   avatar?: string;
   photo?: string;
-  // ...any other fields you use
+  
 }
 
 export interface Store {

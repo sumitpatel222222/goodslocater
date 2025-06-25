@@ -5,7 +5,7 @@ const HowItWorksPage: React.FC = () => {
   const [content, setContent] = useState<string>('');
 
   useEffect(() => {
-    fetch('/howitworks.txt')
+    fetch('/goodslocater/howitworks.txt')
       .then((res) => res.text())
       .then(setContent)
       .catch(() => setContent('Could not load content.'));

@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
 
     try {
-      await login(email, password, userType); // Pass userType!
+      await login(email, password, userType); 
       const user = JSON.parse(localStorage.getItem('currentUser') || '{}');
       if (user.userType === 'shopkeeper') {
         navigate('/inventory');
@@ -34,8 +34,8 @@ const LoginPage: React.FC = () => {
 
   // Note for demo purposes
   const demoCredentials = {
-    customer: { email: 'jane@example.com', password: '123456' },
-    shopkeeper: { email: 'john@example.com', password: '123456' }
+    customer: { email: 'sumit@example.com', password: '123456' },
+    shopkeeper: { email: 'rudresh@example.com', password: '123456' }
   };
 
   const fillDemoCredentials = () => {
@@ -156,7 +156,6 @@ const LoginPage: React.FC = () => {
   );
 };
 
-// Removed duplicate login function that references undefined setIsLoading and setError.
-// The login logic should be handled by the useAuth context or inside a React component where state setters are defined.
+
 
 export default LoginPage;

@@ -46,8 +46,8 @@ export const getCurrentLocation = (): Promise<{ latitude: number; longitude: num
 export const getMockLocation = (): Promise<{ latitude: number; longitude: number }> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      // New York City coordinates
-      resolve({ latitude: 40.7128, longitude: -74.006 });
+      // Varanasi coordinates
+      resolve({ latitude: 25.3176, longitude: 82.9739 });
     }, 500);
   });
 };

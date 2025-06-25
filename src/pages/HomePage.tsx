@@ -32,10 +32,10 @@ const categoryColors: { [key: string]: string } = {
   '18': 'text-orange-300',     // Food & Beverage
   '19': 'text-yellow-300',     // Bakery
   '20': 'text-blue-300',       // Stationery
-  // Add more if you add more categories!
+ 
 };
 
-// Map icon string to Lucide icon component
+
 const categoryIcons: { [key: string]: React.ElementType } = {
   'shopping-basket': ShoppingBasket,
   'laptop': Laptop,
@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
       });
   }, []);
 
-  // Featured products (showing first 4)
+  
   const featuredProducts = products.slice(0, 4);
 
   return (

@@ -8,6 +8,7 @@ interface AuthContextType {
   error: string | null;
   login: (email: string, password: string, userType: 'customer' | 'shopkeeper') => Promise<void>;
   logout: () => void;
+  register: (data: { name: string; email: string; password: string; userType: string }) => boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -65,6 +66,22 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     localStorage.removeItem('currentUser');
   };
 
+  const register = (data: { name: string; email: string; password: string; userType: string }) => {
+    const localUsers = JSON.parse(localStorage.getItem('users') || '[]');
+    if (localUsers.some((u: any) => u.email === data.email)) {
+      return false;
+    }
+    const newUser = {
+      id: Date.now().toString(),
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      userType: data.userType,
+    };
+    localStorage.setItem('users', JSON.stringify([...localUsers, newUser]));
+    return true;
+  };
+
   // Check for saved user on mount
   React.useEffect(() => {
     const savedUser = localStorage.getItem('currentUser');
@@ -78,7 +95,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     isLoading,
     error,
     login,
-    logout
+    logout,
+    register,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

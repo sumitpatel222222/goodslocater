@@ -5,13 +5,13 @@ const stories = [
   {
     name: "sumit patel",
     role: "Shopkeeper",
-    photo: "IMG_0511.JPG",
+    photo: "/goodslocater/IMG_0511.JPG",
     story: "Using Goodslocater, my sales increased by 30% in just two months! Customers love knowing what's in stock.",
   },
   {
     name: "Priya Patel",
     role: "Customer",
-    photo: "IMG20250101081319.jpg",
+    photo: "/goodslocater/IMG20250101081319.jpg",
     story: "I found all the groceries I needed at local shops without wasting time. Super convenient!",
   },
   // Add more stories...
